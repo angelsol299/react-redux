@@ -10,14 +10,16 @@ class App extends Component {
       { name: "luigi", age: 34, belt: "red", id: 3 }
     ]
   };
-  addNinja = ninja => {};
+  addNinja = ninja => {
+    ninja.id = Math.random();
+  };
   render() {
     return (
       <div className="App">
         <h1>Welcome home homie</h1>
         <p>Welcome Home compa</p>
         <Ninjas ninjas={this.state.ninjas} />
-        <AddNinja />
+        <AddNinja addNinja={this.addNinja} />
       </div>
     );
   }
