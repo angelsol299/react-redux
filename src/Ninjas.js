@@ -1,27 +1,20 @@
 import React from "react";
+import "./Ninjas.css";
 
-const Ninjas = ({ ninjas }) => {
-  //console.log(this.props);
-  //const ninjaList = ninjas.map(ninja => {
-  /*  if (ninja.age > 20) {
-      return (
-        <div className="ninja" key={ninja.id}>
-          <div>Name: {ninja.name}</div>
-          <div>Age: {ninja.age}</div>
-          <div>Belt: {ninja.belt}</div>
-          <br />
-        </div>
-      );
-    } else {
-      return null;
-    }
-  });*/
+const Ninjas = ({ ninjas, deleteNinja }) => {
   const ninjaList = ninjas.map(ninja => {
     return ninja.age > 20 ? (
       <div className="ninja" key={ninja.id}>
         <div>Name: {ninja.name}</div>
         <div>Age: {ninja.age}</div>
         <div>Belt: {ninja.belt}</div>
+        <button
+          onClick={() => {
+            deleteNinja(ninja.id);
+          }}
+        >
+          Delete ninja
+        </button>
         <br />
       </div>
     ) : null;
